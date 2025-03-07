@@ -1,8 +1,14 @@
 <template>
-  <div>
-    <h1>TODO App</h1>
-    <TodoForm @task-added="fetchTasks" />
-    <TodoList :tasks="tasks" @task-deleted="fetchTasks" />
+  <div class="section">
+    <div class="container">
+      <h1 class="title has-text-centered">TODO App</h1>
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <TodoForm @task-added="fetchTasks" />
+          <TodoList :tasks="tasks" @task-deleted="fetchTasks" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,3 +45,13 @@ export default defineComponent({
   },
 })
 </script>
+
+<style>
+.section {
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 800px;
+}
+</style>

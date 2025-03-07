@@ -1,10 +1,33 @@
 <template>
-  <div>
-    <h2>Добавить задачу</h2>
-    <form @submit.prevent="addTask">
-      <input v-model="newTask.description" placeholder="Название задачи" required />
-      <button type="submit">Добавить</button>
-    </form>
+  <div class="card">
+    <div class="card-content">
+      <h2 class="title is-4 has-text-centered">Добавить задачу</h2>
+      <form @submit.prevent="addTask">
+        <div class="field">
+          <div class="control has-icons-left">
+            <input
+              v-model="newTask.description"
+              class="input"
+              placeholder="Название задачи"
+              required
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-tasks"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button is-primary is-fullwidth">
+              <span class="icon">
+                <i class="fas fa-plus"></i>
+              </span>
+              <span>Добавить</span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -33,3 +56,9 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+.card {
+  margin-bottom: 1.5rem;
+}
+</style>
