@@ -1,0 +1,51 @@
+# Игнорировать файлы сборки
+bin/
+obj/
+
+# Игнорировать файлы базы данных SQLite
+*.db
+*.db-shm
+*.db-wal
+
+# Игнорировать файлы конфигурации с sensitive данными
+appsettings.Development.json
+appsettings.json
+
+# Игнорировать файлы IDE
+.vs/
+.vscode/
+.idea/
+
+# Игнорировать папку для локальных данных
+.localhistory/
+
+# Игнорировать папку для NuGet
+.nuget/
+packages/
+
+# Игнорировать файлы пользовательских настроек
+*.user
+*.suo
+*.userprefs
+
+# Игнорировать папку для выходных данных
+out/
+publish/
+
+# Игнорировать файлы Rider
+*.sln.iml
+*.csproj.iml
+
+# Игнорировать файлы Docker
+docker-compose.override.yml
+
+# Игнорировать файлы логов
+*.log
+logs/
+
+# Игнорировать папку для тестовых данных
+TestResults/
+
+# Игнорировать файлы резервных копий
+*.bak
+*.tmp
