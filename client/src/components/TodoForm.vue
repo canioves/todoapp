@@ -1,33 +1,24 @@
 <template>
-  <div class="card">
-    <div class="card-content">
-      <h2 class="title is-4 has-text-centered">Добавить задачу</h2>
-      <form @submit.prevent="addTask">
-        <div class="field">
-          <div class="control has-icons-left">
-            <input
-              v-model="newTask.description"
-              class="input"
-              placeholder="Название задачи"
-              required
-            />
-            <span class="icon is-small is-left">
-              <i class="fas fa-tasks"></i>
-            </span>
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <button type="submit" class="button is-primary is-fullwidth">
-              <span class="icon">
-                <i class="fas fa-plus"></i>
-              </span>
-              <span>Добавить</span>
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+  <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-4 text-white">Добавить задачу</h2>
+    <form @submit.prevent="addTask">
+      <div class="mb-4">
+        <input
+          v-model="newTask.description"
+          class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 border-gray-600 text-white"
+          placeholder="Название задачи"
+          required
+        />
+      </div>
+      <div>
+        <button
+          type="submit"
+          class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors"
+        >
+          Добавить
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -56,9 +47,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped>
-.card {
-  margin-bottom: 1.5rem;
-}
-</style>

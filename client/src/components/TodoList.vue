@@ -1,40 +1,35 @@
 <template>
-  <div class="card">
-    <div class="card-content">
-      <h2 class="title is-4 has-text-centered">Список задач</h2>
-      <ul>
-        <li
-          v-for="task in tasks"
-          :key="task.id"
-          class="box task-item"
-          :class="{ 'task-item-checked': task.isCompleted }"
+  <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-center mb-4 text-white">Список задач</h2>
+    <ul>
+      <li
+        v-for="task in tasks"
+        :key="task.id"
+        class="p-4 mb-2 bg-gray-700 rounded-lg flex items-center justify-between"
+        :class="{ 'bg-gray-600': task.isCompleted }"
+      >
+        <div class="flex items-center space-x-4">
+          <input
+            type="checkbox"
+            :checked="task.isCompleted"
+            @change="toggleCompletion(task)"
+            class="w-5 h-5 rounded text-blue-500 focus:ring-blue-500 bg-gray-600 border-gray-500"
+          />
+          <span
+            class="max-w-md text-lg text-white truncate"
+            :class="{ 'line-through  text-gray-400': task.isCompleted }"
+          >
+            {{ task.description }}
+          </span>
+        </div>
+        <button
+          @click="deleteTask(task.id)"
+          class="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition-colors"
         >
-          <div class="field is-grouped is-grouped-multiline">
-            <div class="control">
-              <label class="checkbox is-large">
-                <input
-                  type="checkbox"
-                  :checked="task.isCompleted"
-                  @change="toggleCompletion(task)"
-                  class="custom-checkbox"
-                />
-              </label>
-            </div>
-            <div class="control is-expanded">
-              <span
-                class="is-size-5"
-                :class="{ 'has-text-grey': task.isCompleted, 'is-italic': task.isCompleted }"
-              >
-                {{ task.description }}
-              </span>
-            </div>
-            <div class="control">
-              <button @click="deleteTask(task.id)" class="delete is-large"></button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+          Удалить
+        </button>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -69,26 +64,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style scoped>
-.task-item {
-  transition: background-color 0.2s ease;
-}
-
-.task-item:hover,
-.task-item-checked {
-  background-color: #1d1d1d; /* Мягкий серый цвет */
-}
-
-.custom-checkbox {
-  width: 1.5rem; /* Увеличиваем размер чекбокса */
-  height: 1.5rem; /* Увеличиваем размер чекбокса */
-  margin-right: 1rem; /* Добавляем отступ справа */
-}
-
-.is-size-5 {
-  font-size: 1.25rem; /* Увеличиваем размер шрифта */
-}
-
-
-</style>
